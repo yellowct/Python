@@ -1,8 +1,6 @@
 import requests
 import re
-# import json
 import pymysql
-
 
 def movies(url):
     headers = {
