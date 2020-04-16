@@ -2,6 +2,7 @@ import requests
 import os
 from bs4 import BeautifulSoup
 
+
 # 1.创建文件夹
 path = './photo'
 if os.path.exists(path) == False:
@@ -37,4 +38,3 @@ for i, j in enumerate(photo):
     # 保存到本地
     with open(path + '/' + img_name, 'wb') as file:
         file.write(img)
-        
