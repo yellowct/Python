@@ -22,7 +22,6 @@ def movies(url):
             'score': movie[6],
         }
 
-
 def main():
     db = pymysql.connect('localhost', 'root', '', 'db_test')
     mysql = db.cursor()
