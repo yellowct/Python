@@ -1,8 +1,6 @@
 import requests
 import re
-# import json
 import pymysql
-
 
 def movies(url):
     headers = {
@@ -21,7 +19,6 @@ def movies(url):
             'director': movie[3].strip()[4:index + 4],
             'score': movie[6],
         }
-
 
 def main():
     db = pymysql.connect('localhost', 'root', '', 'db_test')
