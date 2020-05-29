@@ -144,34 +144,4 @@ if __name__ == '__main__':
         conn.close()  # 关闭客户端链接
     tcpS.closel()
 
-    # server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    # server.bind(('192.168.1.21', 8001))  #绑定要监听的端口
-    # server.listen(5)  #开始监听 表示可以使用五个链接排队
-    # while True:  # conn就是客户端链接过来而在服务端为期生成的一个链接实例
-    #     conn, addr = server.accept()  #等待链接,多个链接的时候就会出现问题,其实返回了两个值
-    #     print(conn, addr)
-    #     while True:
-    #         buf = conn.recv(1024)  #接收数据
-    #         # print('recive:', data.decode())  #打印接收到的数据
-    #         if type(buf) == bytes:
-    #             data_type = str(buf, encoding="utf-8")
-    #         else:
-    #             data_type = buf
-    #         # data_type="1001/B07V5QYVHG"
-    #         print(data_type)
-    #         data_type = data_type.split("/")
-    #         if data_type[0] == str(1001):
-    #             check = check(data_type)
-    #             data = '1001/' + str(check)
-    #             print(data)
-    #             conn.send(bytes(data, encoding='utf-8'))
-    #         elif data_type[0] == str(1011):
-    #             res = get(data_type)
-    #             data = ",".join(map(str, res))
-    #             data = data.replace("},{",
-    #                                 "/###/").replace("'grade':", "").replace(
-    #                                     ", 'content': ",
-    #                                     "/$$$/").replace("{", "")
-    #             # print(data)
-    #             conn.send(bytes(data, encoding='utf-8'))
-    # conn.close()
+
