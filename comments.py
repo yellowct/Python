@@ -194,44 +194,44 @@ def get(data_type):
 
 
 if __name__ == '__main__':
-    data_type = "1003/610144500330/686773455"
-    data_type = data_type.split("/")
-    res = check(data_type)
-    print(res)
-    # COD = 'utf-8'
-    # HOST = '192.168.1.21'  # 主机ip
-    # PORT = 8001  # 软件端口号
-    # BUFSIZ = 2048
-    # ADDR = (HOST, PORT)
-    # SIZE = 10
-    # tcpS = socket(AF_INET, SOCK_STREAM)  # 创建socket对象  # NOQA
-    # tcpS.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)  #加入socket配置，重用ip和端口  # NOQA
-    # tcpS.bind(ADDR)  # 绑定ip端口号
-    # tcpS.listen(SIZE)  # 设置最大链接数
-    # while True:
-    #     print("客户端未链接")
-    #     conn, addr = tcpS.accept()
-    #     print("链接的客户端", addr)
-    #     while True:
-    #         try:
-    #             data = conn.recv(BUFSIZ)  # 读取已链接客户的发送的消息
-    #             print(data)
-    #             if type(data) == bytes:
-    #                 get_data = str(data, encoding="utf-8")
-    #             else:
-    #                 get_data = data
-    #             data_type = get_data.split("/")
-    #             if data_type[0][0:3] == str(100):
-    #                 msg = check(data_type)
-    #             else:
-    #                 msg = get(data_type)
-    #         except Exception as e:
-    #             print(e)
-    #             print("断开的客户端", addr)
-    #             break
-    #         # print("客户端发送的内容:", data.decode(COD))
-    #         if not data:
-    #             break
-    #         conn.send(bytes(msg, encoding='utf-8'))
+    # data_type = "1003/610144500330/686773455"
+    # data_type = data_type.split("/")
+    # res = check(data_type)
+    # print(res)
+    COD = 'utf-8'
+    HOST = '192.168.1.21'  # 主机ip
+    PORT = 8001  # 软件端口号
+    BUFSIZ = 2048
+    ADDR = (HOST, PORT)
+    SIZE = 10
+    tcpS = socket(AF_INET, SOCK_STREAM)  # 创建socket对象  # NOQA
+    tcpS.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)  #加入socket配置，重用ip和端口  # NOQA
+    tcpS.bind(ADDR)  # 绑定ip端口号
+    tcpS.listen(SIZE)  # 设置最大链接数
+    while True:
+        print("客户端未链接")
+        conn, addr = tcpS.accept()
+        print("链接的客户端", addr)
+        while True:
+            try:
+                data = conn.recv(BUFSIZ)  # 读取已链接客户的发送的消息
+                print(data)
+                if type(data) == bytes:
+                    get_data = str(data, encoding="utf-8")
+                else:
+                    get_data = data
+                data_type = get_data.split("/")
+                if data_type[0][0:3] == str(100):
+                    msg = check(data_type)
+                else:
+                    msg = get(data_type)
+            except Exception as e:
+                print(e)
+                print("断开的客户端", addr)
+                break
+            # print("客户端发送的内容:", data.decode(COD))
+            if not data:
+                break
+            conn.send(bytes(msg, encoding='utf-8'))
         # conn.close()  # 关闭客户端链接
     # tcpS.closel()
