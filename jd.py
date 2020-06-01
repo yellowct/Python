@@ -13,7 +13,7 @@ def jd(data_type):
         print(i)
         url = 'https://club.jd.com/comment/productPageComments.action'
         data = {
-            'callback': 'fetchJSON_comment98',
+            # 'callback': 'fetchJSON_comment98',
             'productId': data_type[1],
             'score': 0,
             'sortType': 5,
@@ -22,13 +22,13 @@ def jd(data_type):
         }
         headers = {
             'Cookie':
-            '__jdu=1188368200; shshshfpa=9d728c45-a916-4350-f906-068416ca9332-1575275266; shshshfpb=s2586a9PVepGntc4eoSAkFA%3D%3D; unpl=V2_ZzNtbREHExUhAUIDfRsJAmIDR1gSUUYWcAgWUn4fWwdnBxZYclRCFnQUR1BnGlUUZwYZXUJcQhVFCEdkfh1eAmUzIlxyVEMlfThGVHIQXgJuABNccmdEJUVTEzp%2bHlpWNwNCXUJUEUJ9OEZReRlbBGIBEVVyVnMVcA1OVXsbXQZuM1kzQxpDFXwBRFNyGl0EVwIiXg%3d%3d; __jdv=76161171|www.infinitynewtab.com|t_45363_|tuiguang|baa1e85f73d641d4a74241a747631554|1590646215178; areaId=19; ipLoc-djd=19-1607-3155-0; qd_ad=-%7C-%7C-%7C-%7C0; qd_uid=KAQDUY1R-ILCDG3EQSS9QI7272KMA; qd_fs=1590646504669; qd_ts=1590646504669; qd_ls=1590646504669; qd_sq=1; __jdc=122270672; 3AB9D23F7A4B3C9B=D6GXZC7GHVVAMZTIHTHXZA77K52DRRV3OMXNO4FUXXIN6G5BJPS6UU5KTRGTY5FMQJRMXHXEAGKRDZLFH5V7GBBFRQ; shshshfp=4a900e25b154cae027a177c05f2e5bb7; jwotest_product=99; __jda=122270672.1188368200.1572600050.1590653065.1590657945.21; JSESSIONID=5927EF204C28F9421786A3FDF1D8A4FB.s1; shshshsID=54dd604c2b309726c023a880f96b3500_13_1590659402771; __jdb=122270672.13.1188368200|21.1590657945',
+            'unpl=V2_ZzNtbREHExUhAUIDfRsJAmIDR1gSUUYWcAgWUn4fWwdnBxZYclRCFnQUR1BnGlUUZwYZXUJcQhVFCEdkfh1eAmUzIlxyVEMlfThGVHIQXgJuABNccmdEJUVTEzp%2bHlpWNwNCXUJUEUJ9OEZReRlbBGIBEVVyVnMVcA1OVXsbXQZuM1kzQxpDFXwBRFNyGl0EVwIiXg%3d%3d; __jdv=76161171|www.infinitynewtab.com|t_45363_|tuiguang|baa1e85f73d641d4a74241a747631554|1590646215178; areaId=19; ipLoc-djd=19-1607-3155-0; qd_ad=-%7C-%7C-%7C-%7C0; qd_uid=KAQDUY1R-ILCDG3EQSS9QI7272KMA; qd_fs=1590646504669; qd_ts=1590646504669; qd_ls=1590646504669; qd_sq=1; __jdc=122270672; 3AB9D23F7A4B3C9B=D6GXZC7GHVVAMZTIHTHXZA77K52DRRV3OMXNO4FUXXIN6G5BJPS6UU5KTRGTY5FMQJRMXHXEAGKRDZLFH5V7GBBFRQ; shshshfp=4a900e25b154cae027a177c05f2e5bb7; jwotest_product=99; __jda=122270672.1188368200.1572600050.1590653065.1590657945.21;',
             'User-Agent':
             'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36'
         }
         # print(url)
         html = requests.get(url, params=data, headers=headers).text
-        data = json.loads(html[20:-2])
+        data = json.loads(html)
         if data['comments'] == []:
             break
         elif break_flag is True:
